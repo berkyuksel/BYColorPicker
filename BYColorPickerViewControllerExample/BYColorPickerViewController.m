@@ -101,7 +101,6 @@ NSString * const kExitSegueIdentifier = @"ReturnToHomeViewSegue";
     UIColor *brightnessEndColor = [UIColor colorWithHue:_hue saturation:_saturation brightness:1.0f alpha:1.0f];
     BYGradientSlider *brightnessSlider = (BYGradientSlider *)[self.view viewWithTag:20];
     [brightnessSlider updateGradientLayerWithStartColor:brightnessStartColor andEndColor:brightnessEndColor];
-
 }
 
 #pragma mark - IBAction Handlers

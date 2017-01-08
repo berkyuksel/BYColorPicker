@@ -20,6 +20,7 @@
 		1E3358E31E11C1C900AAE9F9 /* BYColorWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3358E21E11C1C900AAE9F9 /* BYColorWheel.m */; };
 		1E3358E61E11C4F700AAE9F9 /* BYColorSwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3358E51E11C4F700AAE9F9 /* BYColorSwatch.m */; };
 		1E3358E91E11C7B300AAE9F9 /* BYGradientSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3358E81E11C7B300AAE9F9 /* BYGradientSlider.m */; };
+		1E4C13081E22A35F001D7634 /* BYGfxUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4C13071E22A35F001D7634 /* BYGfxUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		1E3358E51E11C4F700AAE9F9 /* BYColorSwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYColorSwatch.m; sourceTree = "<group>"; };
 		1E3358E71E11C7B300AAE9F9 /* BYGradientSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYGradientSlider.h; sourceTree = "<group>"; };
 		1E3358E81E11C7B300AAE9F9 /* BYGradientSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYGradientSlider.m; sourceTree = "<group>"; };
+		1E4C13061E22A35F001D7634 /* BYGfxUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYGfxUtility.h; sourceTree = "<group>"; };
+		1E4C13071E22A35F001D7634 /* BYGfxUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYGfxUtility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,8 @@
 				1E3358E51E11C4F700AAE9F9 /* BYColorSwatch.m */,
 				1E3358E71E11C7B300AAE9F9 /* BYGradientSlider.h */,
 				1E3358E81E11C7B300AAE9F9 /* BYGradientSlider.m */,
+				1E4C13061E22A35F001D7634 /* BYGfxUtility.h */,
+				1E4C13071E22A35F001D7634 /* BYGfxUtility.m */,
 			);
 			name = BYColorPickerViewController;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				1E3358E91E11C7B300AAE9F9 /* BYGradientSlider.m in Sources */,
 				1E3358AD1E11490500AAE9F9 /* AppDelegate.m in Sources */,
 				1E3358DF1E114A6E00AAE9F9 /* BYColorPickerViewController.m in Sources */,
+				1E4C13081E22A35F001D7634 /* BYGfxUtility.m in Sources */,
 				1E3358E31E11C1C900AAE9F9 /* BYColorWheel.m in Sources */,
 				1E3358AA1E11490500AAE9F9 /* main.m in Sources */,
 			);

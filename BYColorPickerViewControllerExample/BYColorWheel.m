@@ -7,6 +7,7 @@
 //
 
 #import "BYColorWheel.h"
+#import "BYGfxUtility.h"
 
 #pragma mark - Global Constants
 
@@ -132,7 +133,7 @@
     _crossHairImgView.center = CGPointMake(wheelCenter.x+target.x, wheelCenter.y+target.y);
 }
 
-#pragma  mark - Mathematical Helpers
+#pragma  mark - Helpers
 
 - (CGFloat) pointPairToBearingDegrees:(CGPoint)startingPoint secondPoint:(CGPoint) endingPoint
 {
@@ -186,17 +187,17 @@
     CGSize size = self.bounds.size;
     CGSize radius = [self getRadiusSizeFromCurrentBounds];
     
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(size.width, size.height), NO, 0.0);
-    
-    
     int sectors = 180;
     float angle = 2 * M_PI/sectors;
     
     UIBezierPath *bezierPath;
+    CGPoint center = CGPointMake(size.width/2, size.height/2);
+    
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(size.width, size.height), NO, 0.0);
     
     for (int i=0; i<sectors; i++) {
         
-        CGPoint center = CGPointMake(size.width/2, size.height/2);
+        
         bezierPath = [UIBezierPath bezierPathWithArcCenter:center radius:radius.height startAngle:i * angle endAngle:(i + 1) * angle clockwise:YES];
         [bezierPath addArcWithCenter:center radius:radius.width startAngle:(i+1)*angle endAngle:i*angle clockwise:NO];
         [bezierPath closePath];
@@ -221,38 +222,11 @@
     CGContextRestoreGState(context);
     
     CGPathRef innerShadowPath = CGPathCreateWithEllipseInRect(self.bounds, nil);
-    [self drawInnerShadowInContext:context withPath:innerShadowPath shadowColor:shadowColor.CGColor offset:CGSizeMake(0, 4) blurRadius:6];
+    [BYGfxUtility drawInnerShadowInContext:context withPath:innerShadowPath shadowColor:shadowColor.CGColor offset:CGSizeMake(0, 4) blurRadius:6];
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return img;
 }
-
-- (void)drawInnerShadowInContext:(CGContextRef)context
-                        withPath:(CGPathRef)path
-                     shadowColor:(CGColorRef)shadowColor
-                          offset:(CGSize)offset
-                      blurRadius:(CGFloat)blurRadius {
-    CGContextSaveGState(context);
-    
-    CGContextAddPath(context, path);
-    CGContextClip(context);
-    
-    CGColorRef opaqueShadowColor = CGColorCreateCopyWithAlpha(shadowColor, 1.0);
-    
-    CGContextSetAlpha(context, CGColorGetAlpha(shadowColor));
-    CGContextBeginTransparencyLayer(context, NULL);
-    CGContextSetShadowWithColor(context, offset, blurRadius, opaqueShadowColor);
-    CGContextSetBlendMode(context, kCGBlendModeSourceOut);
-    CGContextSetFillColorWithColor(context, opaqueShadowColor);
-    CGContextAddPath(context, path);
-    CGContextFillPath(context);
-    CGContextEndTransparencyLayer(context);
-    
-    CGContextRestoreGState(context);
-    
-    CGColorRelease(opaqueShadowColor);
-}
-
 
 /*
 // Only override drawRect: if you perform custom drawing.
