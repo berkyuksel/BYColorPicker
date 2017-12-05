@@ -18,7 +18,7 @@
 //Public interface for BYColorPickerViewController
 @interface BYColorPickerViewController : UIViewController
 
-@property (nonatomic, assign) id <BYColorPickerViewControllerDelegate> delegate;
+@property (nonatomic, weak) id <BYColorPickerViewControllerDelegate> delegate;
 
 //Setter method for initial color state of BYColorPickerViewController upon openning
 - (void)setInitialColor:(UIColor *)color;
